@@ -90,6 +90,9 @@
         let abhishekCount = 0;
         let sanikaCount = 0;
 
+        document.getElementById('abhishekCount').textContent = abhishekCount;
+        document.getElementById('sanikaCount').textContent = sanikaCount;
+
         function increment(person) {
             const dingSound = document.getElementById('dingSound');
             dingSound.currentTime = 0; // Reset the sound to the start
@@ -98,10 +101,24 @@
             if (person === 'abhishek') {
                 abhishekCount++;
                 document.getElementById('abhishekCount').textContent = abhishekCount;
+                saveCountToSheet('abhishek', abhishekCount);
             } else if (person === 'sanika') {
                 sanikaCount++;
                 document.getElementById('sanikaCount').textContent = sanikaCount;
+                saveCountToSheet('sanika', sanikaCount);
             }
+        }
+
+        function saveCountToSheet(person, count) {
+            const url = 'https://script.google.com/macros/s/AKfycbw42oFwbWgYOGW_rDhD7AI-NLxV69LgALWel_O7xMc0u42AibpsRfpqtPQUri0CUnDmcQ/exec';
+            fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `person=${person}&count=${count}`
+            });
         }
     </script>
 </body>
