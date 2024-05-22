@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lame-O-Meter</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ffcc33, #ff6666);
+            color: #333;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #fff;
+        }
+        
+        .counter {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px;
+        }
+        
+        .counter div {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .count {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #ff3333;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            background: #33cc33;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        
+        button:hover {
+            background: #28a428;
+        }
+        
+        button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lame-O-Meter</h1>
+    <div class="counter">
+        <div>
+            <div class="count" id="abhishekCount">0</div>
+            <button onclick="increment('abhishek')">Abhishek</button>
+        </div>
+        <div>
+            <div class="count" id="sanikaCount">0</div>
+            <button onclick="increment('sanika')">Sanika</button>
+        </div>
+    </div>
+
+    <audio id="dingSound" preload="auto">
+        <source src="/Users/abhisheklonkar/Downloads/cashier-quotka-chingquot-sound-effect-129698.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let abhishekCount = 0;
+        let sanikaCount = 0;
+
+        function increment(person) {
+            const dingSound = document.getElementById('dingSound');
+            dingSound.currentTime = 0; // Reset the sound to the start
+            dingSound.play();
+
+            if (person === 'abhishek') {
+                abhishekCount++;
+                document.getElementById('abhishekCount').textContent = abhishekCount;
+            } else if (person === 'sanika') {
+                sanikaCount++;
+                document.getElementById('sanikaCount').textContent = sanikaCount;
+            }
+        }
+    </script>
+</body>
+
+</html>
