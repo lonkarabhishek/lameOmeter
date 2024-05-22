@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lame-O-Meter</title>
-    <iframe width="1029" height="636" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTszCxFwIlX4XVnsMOUuqhCS-NKl7II9oPdfJXa8xoUhEnufr_EPmhfez1XvvgEZRo-rCsDtIkLWFzB/pubchart?oid=522484292&amp;format=interactive"></iframe>
-
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -19,13 +16,11 @@
             background: linear-gradient(135deg, #ffcc33, #ff6666);
             color: #333;
         }
-        
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
             text-shadow: 2px 2px #fff;
         }
-        
         .counter {
             display: flex;
             justify-content: space-around;
@@ -33,7 +28,6 @@
             max-width: 600px;
             margin: 20px;
         }
-        
         .counter div {
             text-align: center;
             background: rgba(255, 255, 255, 0.8);
@@ -41,13 +35,11 @@
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-        
         .count {
             font-size: 3em;
             margin-bottom: 10px;
             color: #ff3333;
         }
-        
         button {
             padding: 10px 20px;
             font-size: 1.5em;
@@ -58,14 +50,27 @@
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
         }
-        
         button:hover {
             background: #28a428;
         }
-        
         button:active {
             transform: scale(0.95);
             box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .iframe-container {
+            width: 90%;
+            max-width: 1000px;
+            height: 500px;
+            margin: 20px 0;
+            border: 2px solid #333;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -81,6 +86,11 @@
             <button onclick="increment('sanika')">Sanika</button>
         </div>
     </div>
+
+    <div class="iframe-container">
+        <iframe seamless src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTszCxFwIlX4XVnsMOUuqhCS-NKl7II9oPdfJXa8xoUhEnufr_EPmhfez1XvvgEZRo-rCsDtIkLWFzB/pubchart?oid=522484292&amp;format=interactive"></iframe>
+    </div>
+
     <audio id="dingSound" preload="auto">
         <source src="cashier-quotka-chingquot-sound-effect-129698.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -122,5 +132,4 @@
         }
     </script>
 </body>
-
 </html>
